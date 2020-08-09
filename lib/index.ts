@@ -59,28 +59,29 @@ export class VSDebugger {
 
     private print_log(msg: string, data: any) {
         console.group(COLORS.bg.Green, COLORS.fg.Black, '   LOG:   ', COLORS.Reset);
-        console.log(COLORS.fg.Green, `${new Date(Date.now()).toLocaleDateString()} * ${msg} => ${data}`, COLORS.Reset);
+        console.log(COLORS.fg.Green, `✔ [${new Date(Date.now()).toLocaleDateString()}]\n * ${msg} =>\n\t ${data}`, COLORS.Reset);
         console.groupEnd();
     }
     private print_warn(msg: string, data: any) {
         console.group(COLORS.bg.Magenta, COLORS.fg.Yellow, '   WARN:  ', COLORS.Reset);
-        console.warn(COLORS.fg.Magenta, `${new Date(Date.now()).toLocaleDateString()} * ${msg} => ${data}`, COLORS.Reset);
+        console.warn(COLORS.fg.Magenta, `⚠  [${new Date(Date.now()).toLocaleDateString()}]\n * ${msg} =>\n\t ${data}`, COLORS.Reset);
         console.groupEnd();
     }
     private print_error(msg: string, data: any) {
         console.group(COLORS.bg.Red, COLORS.fg.Yellow, '  ERROR:  ', COLORS.Reset);
-        console.log(COLORS.fg.Red, `${new Date(Date.now()).toLocaleDateString()} * ${msg} => ${data}`, COLORS.Reset);
+        console.log(COLORS.fg.Red, `✖  [${new Date(Date.now()).toLocaleDateString()}]\n * ${msg} =>\n\t ${data}`, COLORS.Reset);
         console.groupEnd();
     }
     private print_info(msg: string, data: any) {
         console.group(COLORS.bg.Blue, COLORS.fg.Yellow, '   INFO:  ', COLORS.Reset);
-        console.log(COLORS.fg.Blue, `${new Date(Date.now()).toLocaleDateString()} * ${msg} => ${data}`, COLORS.Reset);
+        console.log(COLORS.fg.Blue, `ℹ  [${new Date(Date.now()).toLocaleDateString()}]\n * ${msg} =>\n\t ${data}`, COLORS.Reset);
         console.groupEnd();
     }
 
     public print_obj(msg: any, obj: Object) {
-        console.log(`Log: %c${msg}`, 'color: lightgreen; font-style: italic;')
+        console.group(COLORS.bg.Green, COLORS.fg.Black, `   JSON:  `, COLORS.bg.Black, COLORS.fg.Green, `\n * ${msg}\n`, COLORS.Reset);
         console.table(obj);
+        console.groupEnd();
     }
 
 };
