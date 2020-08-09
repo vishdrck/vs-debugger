@@ -1,22 +1,41 @@
 import { CONSOLE_TYPES } from './types/types';
-class VSDebugger {
-    // Enable/ Disable VSDebugger
-    enable = false;
+export class VSDebugger {
+    /**
+     * Enable the debugger.
+     * @default false
+     */
+    private enable = false;
 
     // Singleton Data Store
     private static instance: VSDebugger;
 
-    constructor(enable: boolean) {
+    constructor(enable: boolean = false) {
         this.enable = enable;
     }
 
+    /**
+     * Get the debugger instance. You need to declare in the entry point file before use.
+     * @example 
+     * 
+     *   var debugger = new VSDebugger(true).getDebugger();
+     */
     private static getDebugger() {
         if (!this.instance) {
-            this.instance = new VSDebugger(true);
+            this.instance = new VSDebugger();
         }
         return this.instance;
     }
 
+    /**
+     * 
+     * @param console_type Console type for printing the data
+     * LOG, ERROR, INFO, WARN    
+     * @param msg Message before print the log message
+     * @param data Any type of data should be passed to this method
+     * @example
+     *     var debugger = new VSDebugger(true).getDebugger();
+     *     debugger.print(CONSOLE_TYPES.LOG,'Test print function',{name: 'John Doe'});
+     */
     private print(console_type: CONSOLE_TYPES = CONSOLE_TYPES.LOG, msg: string, data: any) {
         if (this.enable) {
             if (console_type.localeCompare(CONSOLE_TYPES.LOG) === 0) {
@@ -47,3 +66,4 @@ class VSDebugger {
     }
 
 };
+
