@@ -29,5 +29,7 @@
   },
   "homepage": "https://github.com/vishdrck/vs-debugger#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^14.0.27"
+  }
 }

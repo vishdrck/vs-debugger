@@ -6,6 +6,7 @@ export class VSDebugger {
      * @default false
      */
     private enabled = false;
+    private isSupported = false;
 
     // Singleton Data Store
     private static instance: VSDebugger;
