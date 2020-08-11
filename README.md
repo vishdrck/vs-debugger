@@ -3,6 +3,8 @@
 VS-Debugger is the next level console log writer that can be enabled on the development version and deactivated simultaneously on the product version.This module supports browser level consoles and command line level consoles.
 Added support of Angular ivy engine compatibility. 😎
 
+<img src="vs-debugger.jpeg" align="center">
+
 ## Installation
 
 ```
